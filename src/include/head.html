@@ -1,0 +1,30 @@
+<div class="navBar">
+	<ul class="nav clearfix">
+		<li class="m">
+			<h3><a href="#" @@if (context.home==="active") {class="active"}>网站首页</a></h3>
+		</li>
+		<li class="s">|</li>
+		<li class="m">
+			<h3><a>如何使用</a></h3>
+			<ul class="sub">
+				<li><a href="#" @@if (context.use==="active") {class="active"}>如何使用</a></li>
+			</ul>
+		</li>
+		<li class="s">|</li>
+		<li class="m "><!-- 当前频道添加on -->
+			<h3><a>查看参数</a></h3>
+			<ul class="sub">
+				<li><a href="#" @@if (context.params==="active") {class="active"}>查看参数</a></li>
+			</ul>
+		</li>
+		<li class="s">|</li>
+		<li class="m">
+			<h3><a>基础效果</a></h3>
+			<ul class="sub">
+				<li><a href="#" @@if (context.effect==="active") {class="active"}>基础效果</a></li>
+			</ul>
+		</li>
+		<li class="s">|</li>
+		<li class="block"></li><!-- 滑动块 -->
+	</ul>
+</div>

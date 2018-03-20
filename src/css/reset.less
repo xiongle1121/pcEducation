@@ -1,0 +1,100 @@
+@import 'variable.less';
+body{
+	position: relative;
+	font: 12px normal Helvetica, Arial, 'microsoft yahei', sans-serif;
+}
+ul, ol, li, h1, h2, h3, h4, h5, h6, p{
+	margin: 0;
+	padding: 0;
+	font-weight: normal;
+}
+b, strong{
+	font-weight: normal;
+}
+em, i{
+	font-style: normal;
+}
+li{
+	list-style: none;
+}
+img{
+	width: 100%;
+	height: auto;
+	vertical-align: middle;
+}
+table{
+	border-collapse: collapse;
+}
+input, button{
+	padding: 0;
+	border: none;
+	outline: none;
+	background-color: transparent;
+}
+a{
+	text-decoration: none;
+	color: #333;
+}
+.clearfix{
+	zoom: 1;
+}
+.clearfix:after{
+	display: block;
+	content: '';
+	clear: both;
+	line-height: 0;
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+// 省略
+.ellipsis{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+	*{margin:0; padding:0; list-style:none; }
+		body{ background:#fff; font:normal 12px/22px;  }
+		img{ border:0;  }
+		a{ text-decoration:none; color:#333;  }
+		a:hover{ color:#FF8400;  }
+		.js{width:90%; margin:10px auto 0 auto; }
+		.js p{ padding:5px 0; font-weight:bold; overflow:hidden;  }
+		.js p span{ float:right; }
+		.js p span a{ color:#f00; text-decoration:underline;   }
+		.js textarea{ height:190px;  width:98%; padding:5px; border:1px solid #ccc; border-top:2px solid #aaa;  border-left:2px solid #aaa;  }
+
+		/* 本例子css */
+		.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
+		.navBar{  position:relative; z-index:1; padding-left:10px;   height:60px; line-height:60px;}
+		.nav{ position:relative; width:980px; margin:0 auto;  font-family:"Microsoft YaHei",SimSun,SimHei; font-size:14px; }
+		.nav a{ color:#333;  }
+		.nav h3{ font-size:100%; font-weight:normal;   }
+		.nav .m{ float:left;  position:relative; z-index:1; }
+		.nav .s{ float:left; width:3px; text-align:center; color:#D4D4D4; font-size:12px; }
+		.nav h3 a{ display:block; width:124px; text-align:center;   font-weight:bold;  }
+		.nav .sub{ display:none; /*默认隐藏*/  position:absolute; left:-3px; top:60px; z-index:1; width:128px; border:1px solid #E6E4E3; border-top:0;  background:#fff; }
+		.nav .sub li{ text-align:center; padding:0 8px; margin-bottom:-1px;   }
+		.nav .sub li a{ display:block;  border-bottom:1px solid #E6E4E3; padding:8px 0; height:28px; line-height:28px; color:#666;   }
+		.nav .sub li a:hover{ color:#FE7700;   }
+		.nav .block{ height:3px; width:130px; background:#FE7700; position:absolute; left:0; top:57px; overflow:hidden;  }
+
+			#footer{ text-align:center;  }
+
+	/* 本例子css */
+	.fullSlide{ width:100%;  position:relative;  height:410px; background:#000;  }
+	.fullSlide .bd{ margin:0 auto; position:relative; z-index:0; overflow:hidden;  }
+	.fullSlide .bd ul{ width:100% !important;  }
+	.fullSlide .bd li{ width:100% !important;  height:410px; overflow:hidden; text-align:center;  }
+	.fullSlide .bd li a{ display:block; height:410px; }
+
+	.fullSlide .hd{ width:100%;  position:absolute; z-index:1; bottom:0; left:0; height:30px; line-height:30px; }
+	.fullSlide .hd ul{ text-align:center; }
+	.fullSlide .hd ul li{ cursor:pointer; display:inline-block; *display:inline; zoom:1; width:42px; height:11px; margin:1px; overflow:hidden; background:#000;
+		filter:alpha(opacity=50);opacity:0.5;  line-height:999px; 
+	}
+	.fullSlide .hd ul .on{ background:#f00;  }
+	.fullSlide .next{ left:auto; right:15%; background-position:-6px -137px; }

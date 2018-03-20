@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<link rel="stylesheet" href="./css/index.min.css">
+	<link rel="stylesheet" href="./static/theme/layer.css">
+	<title>测试页面</title>
+</head>
+<body>
+	@@include("include/head.html", {
+		"home": "active"
+	})
+	<div>这是中间内</div>
+	@@include('include/foot.html')
+
+	<script src="./js/common.js"></script>
+	<script src="./static/jquery-1.10.2.min.js"></script>
+	<script src="./static/layer.js"></script>
+	<script src="./static/jquery.SuperSlide.2.1.1.js"></script>
+	<script src="./static/echarts.common.min.js"></script>
+</body>
+</html>

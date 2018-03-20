@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<link rel="stylesheet" href="./css/index.min.css">
+	<link rel="stylesheet" href="./static/theme/layer.css">
+	<title>海川易学首页</title>
+</head>
+<body>
+	@@include("include/head.html", {
+		"home": "active"
+	})
+	<button id="test">layer弹窗</button>
+	<button id="toast">提示信息</button>
+	<button id="loading">等待加载</button>
+	<div class="container">
+		测试的内容
+	</div>
+	<div>加上clean之后再测试，文件有变化，md5才会自动更新</div>
+
+	<div class="content" style="height:120px"></div>
+
+	<div class="fullSlide">
+		<div class="bd">
+			<ul>
+				<li _src="url(./images/1.jpg)" style="background:#E2025E center 0 no-repeat;"><a target="_blank" href="#"></a></li>
+				<li _src="url(./images/2.jpg)" style="background:#DED5A1 center 0 no-repeat;"><a target="_blank" href="#"></a></li>
+				<li _src="url(./images/3.jpg)" style="background:#B8CED1 center 0 no-repeat;"><a target="_blank" href="#"></a></li>
+				<li _src="url(./images/4.jpg)" style="background:#98918E center 0 no-repeat;"><a target="_blank" href="#"></a></li>
+				<li _src="url(./images/5.jpg)" style="background:#FEFF19 center 0 no-repeat;"><a target="_blank" href="#"></a></li>
+			</ul>
+		</div>
+		<div class="hd"><ul></ul></div>
+		<span class="prev"></span>
+		<span class="next"></span>
+	</div>
+	
+	<div id="chart" style="width: 500px;height:500px;"></div>
+	<div>底部增加的内容，终于可以自动刷新了</div>
+	@@include('include/foot.html')
+
+	<script src="./js/common.js"></script>
+	<script src="./static/jquery-1.10.2.min.js"></script>
+	<script src="./static/layer.js"></script>
+	<script src="./static/jquery.SuperSlide.2.1.1.js"></script>
+	<script src="./static/echarts.common.min.js"></script>
+	<script>
+		$('#test').click(function() {
+			layer.alert('成功！');
+		})
+		$('#toast').click(function() {
+			layer.msg('hello');
+		})
+		$('#loading').click(function() {
+			var loader = layer.load();
+			setTimeout(function(){
+				layer.close(loader);
+			}, 1000)
+		})
+		$(function(){
+			var ind = 2; //初始位置
+			var nav= jQuery(".nav");
+			var init = jQuery(".nav .m").eq(ind);
+			var block = jQuery(".nav .block"); //滑块
+			block.css({"left":init.position().left-3}); //初始化滑块位置
+			nav.hover(function(){},function(){ block.animate({"left":init.position().left-3},100); }); //移出导航滑块返回
+
+			jQuery(".nav").slide({
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:true,//on返回初始位置
+				defaultIndex:ind,//初始位置
+				startFun:function(i,c,s,tit){ //控制当前滑块位置
+					block.animate({"left":tit.eq(i).position().left-3},100);
+				}
+			});
+		})
+
+		/* 控制左右按钮显示 */
+		jQuery(".fullSlide").hover(function(){ jQuery(this).find(".prev,.next").stop(true,true).fadeTo("show",0.5) },function(){ jQuery(this).find(".prev,.next").fadeOut() })
+
+		/* 调用SuperSlide */
+		jQuery(".fullSlide").slide({ titCell:".hd ul", mainCell:".bd ul", effect:"fold",  autoPlay:true, autoPage:true, trigger:"click",
+			startFun:function(i){
+				var curLi = jQuery(".fullSlide .bd li").eq(i); /* 当前大图的li */
+				if( !!curLi.attr("_src") ){
+					curLi.css("background-image",curLi.attr("_src")).removeAttr("_src") /* 将_src地址赋予li背景，然后删除_src */
+				}
+			}
+		})
+
+		var option = {
+		    xAxis: {
+		        type: 'category',
+		        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+		    },
+		    yAxis: {
+		        type: 'value'
+		    },
+		    series: [{
+		        data: [820, 932, 901, 934, 1290, 1330, 1320],
+		        type: 'line'
+		    }]
+		};
+
+		$(function(){
+			var myChart = echarts.init(document.getElementById('chart'))
+			myChart.setOption(option)
+		})
+	</script>
+</body>
+</html>
